@@ -13,7 +13,6 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		// Unifica la interfaz para Mac y para Windows.
 		try {
 			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
 		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException

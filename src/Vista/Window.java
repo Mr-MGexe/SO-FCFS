@@ -31,17 +31,17 @@ public class Window extends JFrame {
 
 		JPanel panelStatus = new JPanel();
 
-		panelTableReadyQueue = new TablePanel(this, "C. Listos");
+		panelTableReadyQueue = new TablePanel(this, "P. Listos");
 		initTableStatusPanel(panelTableReadyQueue, COLUMN_NAME);
 		panelStatus.add(panelTableReadyQueue);
 
-		panelTableLockQueue = new TablePanel(this, "C. Bloqueados");
+		panelTableLockQueue = new TablePanel(this, "P. Bloqueados");
 		initTableStatusPanel(panelTableLockQueue, COLUMN_NAME);
 		panelStatus.add(panelTableLockQueue);
 
 		add(panelStatus, BorderLayout.WEST);
 
-		panelTable = new TablePanel(this, "Table");
+		panelTable = new TablePanel(this, "Tabla");
 		add(panelTable, BorderLayout.CENTER);
 
 		panelAction = new ActionPanel(this);

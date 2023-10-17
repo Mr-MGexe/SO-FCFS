@@ -9,27 +9,27 @@ public class ActionPanel extends JPanel {
 	private JButton btnInit;
 	private JButton btnPoll;
 	private JButton btnAdd;
-	private JButton btnLock;
-	private JButton btnUnLock;
+	//private JButton btnLock;
+	//private JButton btnUnLock;
 	private JButton btnRestart;
 	private JButton btnExit;
 
 	public ActionPanel(JFrame window) {
 
-		btnInit = new JButton("Iniciar");
+		btnInit = new JButton("Cargar");
 		add(btnInit);
 
-		btnPoll = new JButton("Atender");
+		btnPoll = new JButton("Inicio");
 		add(btnPoll);
 
 		btnAdd = new JButton("Agregar");
 		add(btnAdd);
 
-		btnLock = new JButton("Bloquear");
-		add(btnLock);
+		//btnLock = new JButton("Bloquear");
+		//add(btnLock);
 
-		btnUnLock = new JButton("Desbloquear");
-		add(btnUnLock);
+		//btnUnLock = new JButton("Desbloquear");
+		//add(btnUnLock);
 
 		btnRestart = new JButton("Reiniciar");
 		add(btnRestart);
@@ -64,7 +64,7 @@ public class ActionPanel extends JPanel {
 		this.btnAdd = btnAdd;
 	}
 
-	public JButton getBtnLock() {
+	/*public JButton getBtnLock() {
 		return btnLock;
 	}
 
@@ -79,7 +79,7 @@ public class ActionPanel extends JPanel {
 	public void setBtnUnLock(JButton btnUnLock) {
 		this.btnUnLock = btnUnLock;
 	}
-	
+	*/
 	public JButton getBtnRestart() {
 		return btnRestart;
 	}

@@ -21,13 +21,13 @@ public class Controller {
 		view.getPanelAction().getBtnInit().addActionListener(e -> initAction());
 		view.getPanelAction().getBtnPoll().addActionListener(e -> pollAction());
 		view.getPanelAction().getBtnAdd().addActionListener(e -> addAction());
-		view.getPanelAction().getBtnLock().addActionListener(e -> lockAction());
-		view.getPanelAction().getBtnUnLock().addActionListener(e -> unLockAction());
+		//view.getPanelAction().getBtnLock().addActionListener(e -> lockAction());
+		//view.getPanelAction().getBtnUnLock().addActionListener(e -> unLockAction());
 		view.getPanelAction().getBtnRestart().addActionListener(e -> restartAction());
 		view.getPanelAction().getBtnExit().addActionListener(e -> exitAction());
 		view.setVisible(true);
-	}
-
+        }
+        
 	private void setTableColumName(String[] columnName) {
 		if (this.view.getPanelTable().getTableModel() == null)
 			this.view.getPanelTable().setTableModel(new DefaultTableModel(columnName, 0));
@@ -38,22 +38,26 @@ public class Controller {
 			for (int i = 1; i <= 5; i++)
 				view.getPanelTableReadyQueue().getTableModel().addRow(model.getQueueReady().addProcess());
 		} else {
-			JOptionPane.showMessageDialog(null, "¡No se puede inciar más de una vez!", "Iniciar",
+			JOptionPane.showMessageDialog(null, "¡No se puede inciar más de una vez!", "cargar",
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+        
 
 	private void pollAction() {
 		if (!model.getQueueReady().isQueueEmpty()) {
-			view.getPanelTableReadyQueue().getTableModel().removeRow(0);
-			Object[] data = model.getQueueReady().getDataProcess(model.getQueueReady().pollProcess());
-			view.getPanelTable().getTableModel().addRow(data);
-			view.getPanelTableGantt().paintProcess(data);
+                    //while(!model.getQueueReady().isQueueEmpty()){
+			view.getPanelTableReadyQueue().getTableModel().removeRow(0);// elimina el proceso de la tabla
+			Object[] data = model.getQueueReady().getDataProcess(model.getQueueReady().pollProcess());// obtiene los del proceso y los almacena en data
+                        view.getPanelTableGantt().paintProcess(data);// dibuja en la matriz de gannt
+                        view.getPanelTable().getTableModel().addRow(data);// pinta data en la tabla de resultados
+                    //}
 		} else {
 			JOptionPane.showMessageDialog(null, "¡No hay ningún procesos por atender!", "Atender",
 					JOptionPane.WARNING_MESSAGE);
 		}
 	}
+
 
 	private void addAction() {
 		view.getPanelTableReadyQueue().getTableModel().addRow(model.getQueueReady().addProcess());
